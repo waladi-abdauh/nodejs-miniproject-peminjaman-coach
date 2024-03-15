@@ -22,7 +22,8 @@ module.exports =
             // cek password
             let password_match = bcrypt.compareSync(password, get_user[0].password)
             if (password_match) {
-                res.send('password betul')
+                // res.send('password betul')
+                //setting session
             } else {
                 res.send('password salah')
             }
