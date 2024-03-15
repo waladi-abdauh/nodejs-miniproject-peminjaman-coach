@@ -10,21 +10,21 @@
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin m-auto">
-        <form class="mt-5">
+        <form action="/auth/proses-login" method="post" class="mt-5">
             <img class="mb-4" src="/gambar/js.png" alt="" width="72" height="">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         
             <div class="form-floating mb-2">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+                <input type="text" class="form-control" id="floatingInput" name="form_username" placeholder="Username">
+                <label for="floatingInput">Username</label>
             </div>
             <div class="form-floating mb-2">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" name="form_password" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
         
             <button class="btn btn-primary w-100 py-2 mt-4" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
         </form>
     </main>
 </body>
