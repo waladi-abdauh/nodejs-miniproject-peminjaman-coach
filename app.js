@@ -6,10 +6,9 @@ const c_auth    = require('./controller/c_auth')
 const session           = require('express-session')
 const connectFlash      = require('connect-flash')
 const cookieParser      = require('cookie-parser')
-// const initPassportLocal = require('./controller/c_passport_local')
 const passport          = require('passport')
 
-// initPassportLocal()
+
 app.use(cookieParser('secret'))
 app.use(session({
     secret:'secret', resave:true, saveUninitialized:false, cookie:{
@@ -19,6 +18,7 @@ app.use(session({
 app.use(connectFlash())
 app.use(passport.initialize())
 app.use(passport.session())
+
 
 app.use(express.urlencoded({extended: false}))
 app.use(express.static('public'))
