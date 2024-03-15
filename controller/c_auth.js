@@ -18,19 +18,24 @@ module.exports =
         let get_user = await m_user.get_one(username)
 
         // cek username
-        if (get_user.length > 0) {
-            // cek password
-            let password_match = bcrypt.compareSync(password, get_user[0].password)
-            if (password_match) {
-                // res.send('password betul')
-                //setting session
+        try {
+            if (get_user.length > 0) {
+                let password_match = bcrypt.compareSync(password, get_user[0].password)
+                if (password_match) {
+                    req.session.user = get_user[0]
+                    return res.redirect('/dashboard')
+                } else {
+                    res.send('password salah')
+                }
             } else {
-                res.send('password salah')
+                res.send('username not existed')
             }
-        } else {
-            res.send('user belum terdaftar')
+        } catch (error) {
+            return error
+            // res.redirect(`/auth?m=${error}`)
         }
     },
+
 
 
 }
