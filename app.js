@@ -15,6 +15,7 @@ app.set('views', './view')
 
 app.get('/', c_home.index)
 app.get('/auth', c_auth.form_login)
+app.post('/auth/proses-login', c_auth.proses_login)
 
 
 app.listen(port, ()=>{
