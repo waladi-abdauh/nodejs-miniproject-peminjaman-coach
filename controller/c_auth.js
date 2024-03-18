@@ -6,7 +6,9 @@ module.exports =
 
     form_login:
     function (req,res) {
-        res.render('auth/form-login')
+        res.render('auth/form-login', {
+            flash_message: req.flash(),
+        })
     },
 
 
@@ -25,10 +27,12 @@ module.exports =
                     req.session.user = get_user[0]
                     return res.redirect('/dashboard')
                 } else {
-                    res.send('password salah')
+                    req.flash('warning', 'password salah')
+                    res.redirect('/auth')
                 }
             } else {
-                res.send('username not existed')
+                req.flash('info', 'username not existed')
+                res.redirect('/auth')
             }
         } catch (error) {
             return error
