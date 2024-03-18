@@ -7,6 +7,8 @@ const cookieParser  = require('cookie-parser')
 
 const c_home        = require('./controller/c_home')
 const c_auth        = require('./controller/c_auth')
+const cek_login     = require('./controller/c_auth').cek_login
+const c_dashboard   = require('./controller/c_dashboard')
 
 
 app.use(connectFlash())
@@ -35,14 +37,7 @@ app.set('views', './view')
 app.get('/', c_home.index)
 app.get('/auth', c_auth.form_login)
 app.post('/auth/proses-login', c_auth.proses_login)
-app.get('/dashboard', function(req,res) {
-    if (req.session.user) {
-        res.send('login & session sukses' + JSON.stringify(req.session))
-    }
-    else {
-        res.redirect('/auth')
-    }
-})
+app.get('/dashboard', cek_login, c_dashboard.index)
 
 
 app.listen(port, ()=>{
