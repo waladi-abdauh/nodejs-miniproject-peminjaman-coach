@@ -10,6 +10,7 @@ const c_auth        = require('./controller/c_auth')
 const cek_login     = require('./controller/c_auth').cek_login
 const c_dashboard   = require('./controller/c_dashboard')
 const c_user        = require('./controller/c_user')
+const c_master      = require('./controller/c_master')
 
 
 app.use(connectFlash())
@@ -40,6 +41,12 @@ app.get('/auth', c_auth.form_login)
 app.post('/auth/proses-login', c_auth.proses_login)
 app.get('/dashboard', cek_login, c_dashboard.index)
 app.get('/profil', cek_login, c_user.profil)
+
+
+app.get('/master', cek_login, c_master.index)
+app.get('/master/jenis-buku', cek_login, c_master.jenis_buku)
+app.get('/master/genre', cek_login, c_master.genre)
+app.get('/master/rak', cek_login, c_master.rak)
 
 
 app.listen(port, ()=>{
