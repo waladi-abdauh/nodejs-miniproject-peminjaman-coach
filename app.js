@@ -9,6 +9,7 @@ const c_home        = require('./controller/c_home')
 const c_auth        = require('./controller/c_auth')
 const cek_login     = require('./controller/c_auth').cek_login
 const c_dashboard   = require('./controller/c_dashboard')
+const c_user        = require('./controller/c_user')
 
 
 app.use(connectFlash())
@@ -38,6 +39,7 @@ app.get('/', c_home.index)
 app.get('/auth', c_auth.form_login)
 app.post('/auth/proses-login', c_auth.proses_login)
 app.get('/dashboard', cek_login, c_dashboard.index)
+app.get('/profil', cek_login, c_user.profil)
 
 
 app.listen(port, ()=>{

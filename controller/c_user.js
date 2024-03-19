@@ -1,10 +1,10 @@
 module.exports =
 {
 
-index:
+profil:
 function(req,res) {
     res.render('template/layout', {
-        konten: 'dashboard/index'
+        konten: 'user/profil'
     })
 },
 
