@@ -3,7 +3,7 @@ module.exports =
 
 index:
 function(req,res) {
-    res.send('login & session sukses')
+    res.render('dashboard/index')
 },
 
 
