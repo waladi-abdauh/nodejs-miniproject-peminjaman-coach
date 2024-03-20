@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
     <script src="/bootstrap/js/bootstrap.js"></script>
+    <script src="/fontawesome/js/all.js"></script>
 </head>
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
@@ -13,7 +15,7 @@
         <form action="/auth/proses-login" method="post" class="mt-5">
             <img class="mb-4" src="/gambar/js.png" alt="" width="72" height="">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-        
+            <%- include('../template/flash-message') %>
             <div class="form-floating mb-2">
                 <input type="text" class="form-control" id="floatingInput" name="form_username" placeholder="Username">
                 <label for="floatingInput">Username</label>

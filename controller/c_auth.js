@@ -6,7 +6,9 @@ module.exports =
 
     form_login:
     function (req,res) {
-        res.render('auth/form-login')
+        res.render('auth/form-login', {
+            flash_message: req.flash(),
+        })
     },
 
 
@@ -18,18 +20,37 @@ module.exports =
         let get_user = await m_user.get_one(username)
 
         // cek username
-        if (get_user.length > 0) {
-            // cek password
-            let password_match = bcrypt.compareSync(password, get_user[0].password)
-            if (password_match) {
-                res.send('password betul')
+        try {
+            if (get_user.length > 0) {
+                let password_match = bcrypt.compareSync(password, get_user[0].password)
+                if (password_match) {
+                    req.session.user = get_user[0]
+                    return res.redirect('/dashboard')
+                } else {
+                    req.flash('warning', 'password salah')
+                    res.redirect('/auth')
+                }
             } else {
-                res.send('password salah')
+                req.flash('info', 'username not existed')
+                res.redirect('/auth')
             }
-        } else {
-            res.send('user belum terdaftar')
+        } catch (error) {
+            return error
+            // res.redirect(`/auth?m=${error}`)
         }
     },
+
+
+
+    cek_login:
+    function (req,res,next) {
+        if (req.session.user) {
+            next()
+        } else {
+            res.redirect('auth')
+        }
+    }
+
 
 
 }
