@@ -1,0 +1,24 @@
+<% if (flash_message.info) { %>
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-circle-info fa-lg me-2"></i><%= flash_message.info[0] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (flash_message.success) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-circle-check fa-lg me-2"></i><%= flash_message.success[0] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (flash_message.warning) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-circle-exclamation fa-lg me-2"></i><%= flash_message.warning[0] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (flash_message.danger) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fa-solid fa-triangle-exclamation fa-lg me-2"></i><%= flash_message.danger[0] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
