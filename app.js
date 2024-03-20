@@ -1,6 +1,6 @@
 const express   = require('express')
 const app       = express()
-const port      = 3000
+const port      = 3002
 const c_home    = require('./controller/c_home')
 const c_auth    = require('./controller/c_auth')
 
