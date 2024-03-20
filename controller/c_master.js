@@ -4,7 +4,8 @@ module.exports =
     index:
     function (req,res) {
         res.render('template/layout', {
-            konten: 'master/index'
+            konten: 'master/index',
+            uri_segment: req.path.split('/'),
         })
     },
 
@@ -15,6 +16,7 @@ module.exports =
         res.render('template/layout', {
             konten: 'master/index',
             subkonten: 'jenis-buku/main',
+            uri_segment: req.path.split('/'),
         })
     },
 
@@ -25,6 +27,7 @@ module.exports =
         res.render('template/layout', {
             konten: 'master/index',
             subkonten: 'genre/main',
+            uri_segment: req.path.split('/'),
         })
     },
 
@@ -35,6 +38,7 @@ module.exports =
         res.render('template/layout', {
             konten: 'master/index',
             subkonten: 'rak/main',
+            uri_segment: req.path.split('/'),
         })
     },
 
