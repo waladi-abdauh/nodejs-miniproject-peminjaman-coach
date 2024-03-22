@@ -1,18 +1,5 @@
 const m_jenis_buku = require('../model/m_jenis_buku')
-const { Sequelize } = require('sequelize')
 
-//koneksi db
-const sequelize = new Sequelize('db_peminjaman', 'postgres', 'root', {
-    host: 'localhost',
-    dialect: 'postgres',
-    define: {
-        freezeTableName: true, // untuk kesamaan antara nama model & table
-        timestamps: false, // untuk mematikan fitur timestamps bawaan sequelize
-    }
-})
-
-// setting penamaan yg sama antara model & table
-// const m_jenis_buku = sequelize.define('m_jenis_buku')
 
 
 module.exports =

@@ -1,4 +1,4 @@
-const db = require('../config/database').db
+const db    = require('../config/koneksi_sequelize').db
 const table = 'm_jenis_buku'
 
 
@@ -8,10 +8,10 @@ module.exports =
     get_all:
     async function() {
         try {
-            let sql = await db.query(`
-                SELECT * FROM ${table} WHERE is_active = 1`
+            let sql = await db.query(
+                `SELECT * FROM ${table} WHERE is_active = 1`
             )
-            return sql.rows
+            return sql[0]
         } catch (error) {
             return error
         }
