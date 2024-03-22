@@ -18,4 +18,19 @@ module.exports =
     },
 
 
+    insert:
+    async function(data) {
+        try {
+            let sql = await db.query(
+                `INSERT INTO ${table} (kode, nama, is_active, created_at, created_by)
+                VALUES ($1, $2, $3, $4, $5);`,
+                {bind: [data.kode, data.nama, data.is_active, data.created_at, data.created_by]}
+            )
+            return sql[0]
+        } catch (error) {
+            return error
+        }
+    },
+
+
 }
