@@ -67,6 +67,25 @@ module.exports =
 
 
 
+    jenis_buku_prosesDelete:
+    async function (req,res) {
+        let id_jenis = req.params.id
+        
+        try {
+            let hapus = await m_jenis_buku.hapus(id_jenis)
+            if (hapus) {
+                console.log(hapus)
+                req.flash('success', 'berhasil hapus')
+                res.redirect('/master/jenis-buku')
+            }
+        } catch (error) {
+            req.flash('error', error)
+            res.redirect('/master/jenis-buku')
+        }
+    },
+
+
+
     genre:
     function (req,res) {
         res.render('template/layout', {

@@ -33,4 +33,20 @@ module.exports =
     },
 
 
+
+    hapus:
+    async function(id_jenis) {
+        try {
+            let sql = await db.query(
+                `UPDATE ${table} SET is_active = 0
+                WHERE id = $1;`,
+                {bind: [id_jenis]}
+            )
+            return sql[0]
+        } catch (error) {
+            return error
+        }
+    },
+
+
 }
