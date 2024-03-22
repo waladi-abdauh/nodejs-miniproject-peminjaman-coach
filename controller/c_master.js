@@ -27,6 +27,17 @@ module.exports =
 
 
 
+    jenis_buku_formTambah:
+    async function (req,res) {
+        res.render('template/layout', {
+            konten      : 'master/index',
+            subkonten   : 'jenis-buku/form-tambah',
+            uri_segment : req.path.split('/'),
+        })
+    },
+
+
+
     genre:
     function (req,res) {
         res.render('template/layout', {
