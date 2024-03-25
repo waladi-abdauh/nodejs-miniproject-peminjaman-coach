@@ -60,6 +60,7 @@ app.get('/master/rak', cek_login, c_master.rak)
 
 
 app.get('/buku-masuk', cek_login, c_bukuMasuk.index)
+app.post('/buku-masuk/proses-insert', cek_login, c_bukuMasuk.prosesInsert)
 
 
 app.listen(port, ()=>{
