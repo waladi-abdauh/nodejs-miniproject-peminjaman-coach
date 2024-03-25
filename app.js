@@ -11,6 +11,7 @@ const cek_login     = require('./controller/c_auth').cek_login
 const c_dashboard   = require('./controller/c_dashboard')
 const c_user        = require('./controller/c_user')
 const c_master      = require('./controller/c_master')
+const c_bukuMasuk   = require('./controller/c_buku_masuk')
 
 
 app.use(connectFlash())
@@ -56,6 +57,9 @@ app.post('/master/jenis-buku/proses-update/:id', cek_login, c_master.jenis_buku_
 
 app.get('/master/genre', cek_login, c_master.genre)
 app.get('/master/rak', cek_login, c_master.rak)
+
+
+app.get('/buku-masuk', cek_login, c_bukuMasuk.index)
 
 
 app.listen(port, ()=>{

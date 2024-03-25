@@ -1,0 +1,78 @@
+<h4 class="text-uppercase">Buku Masuk</h4> <br>
+
+<form action="/buku-masuk/proses-insert" method="post">
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="mb-3">
+                <label class="form-label fw-bold text-capitalize">nama buku</label>
+                <input type="text" class="form-control" name="form_nama" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold text-capitalize">nama penerbit</label>
+                <input type="text" class="form-control" name="form_penerbit" required>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-capitalize">jenis buku</label>
+                        <select name="form_jenis" class="form-select" required>
+                            <option value="" selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-capitalize">genre</label>
+                        <select name="form_genre" class="form-select" required>
+                            <option value="" selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-capitalize">nama pengarang</label>
+                        <input type="text" class="form-control" name="form_pengarang" required>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-capitalize">nama ilustrator</label>
+                        <input type="text" class="form-control" name="form_ilustrator">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold text-capitalize">kategori</label>
+                <select name="form_kategori" class="form-select">
+                    <option value="" selected>pilih kategori</option>
+                    <option value="beli">Pembelian baru</option>
+                    <option value="sumbangan">Sumbangan dari orang/anggota</option>
+                    <option value="pengembalian">Pengembalian peminjaman</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+            <div class="mb-3">
+                <label class="form-label fw-bold text-capitalize">jumlah stok masuk</label>
+                <input type="number" class="form-control" name="form_stok" required>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Simpan</button>
+        </div>
+
+    </div>
+</form>
