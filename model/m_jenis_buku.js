@@ -18,6 +18,26 @@ module.exports =
     },
 
 
+
+    get_one:
+    async function(id_jenis) {
+        try {
+            let sql = await db.query(
+                `SELECT
+                    j.*, u.username AS created_username, u.nama AS created_nama
+                FROM ${table} AS j
+                LEFT JOIN users AS u ON u.id = j.created_by
+                WHERE is_active = 1 AND j.id = $1;`,
+                {bind: [id_jenis]}
+            )
+            return sql[0]
+        } catch (error) {
+            return error
+        }
+    },
+
+
+
     insert:
     async function(data) {
         try {

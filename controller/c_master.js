@@ -1,4 +1,5 @@
 const moment = require('moment')
+moment.locale('id')
 const m_jenis_buku  = require('../model/m_jenis_buku')
 
 
@@ -82,6 +83,21 @@ module.exports =
             req.flash('error', error)
             res.redirect('/master/jenis-buku')
         }
+    },
+
+
+
+    jenis_buku_detail:
+    async function (req,res) {
+        let id_jenis = req.params.id
+        res.render('template/layout', {
+            konten          : 'master/index',
+            subkonten       : 'jenis-buku/detail',
+            uri_segment     : req.path.split('/'),
+            flash_message   : req.flash(),
+            jenis_buku      : await m_jenis_buku.get_one(id_jenis),
+            moment          : moment,
+        })
     },
 
 
