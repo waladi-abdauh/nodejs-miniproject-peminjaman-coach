@@ -50,6 +50,9 @@ app.get('/master/jenis-buku/tambah', cek_login, c_master.jenis_buku_formTambah)
 app.post('/master/jenis-buku/proses-insert', cek_login, c_master.jenis_buku_prosesInsert)
 app.post('/master/jenis-buku/delete/:id', cek_login, c_master.jenis_buku_prosesDelete)
 app.get('/master/jenis-buku/detail/:id', cek_login, c_master.jenis_buku_detail)
+app.get('/master/jenis-buku/edit/:id', cek_login, c_master.jenis_buku_formEdit)
+app.post('/master/jenis-buku/proses-update/:id', cek_login, c_master.jenis_buku_prosesUpdate)
+
 
 app.get('/master/genre', cek_login, c_master.genre)
 app.get('/master/rak', cek_login, c_master.rak)

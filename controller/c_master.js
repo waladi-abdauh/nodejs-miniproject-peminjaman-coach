@@ -102,6 +102,44 @@ module.exports =
 
 
 
+    jenis_buku_formEdit:
+    async function (req,res) {
+        let id_jenis = req.params.id
+        res.render('template/layout', {
+            konten          : 'master/index',
+            subkonten       : 'jenis-buku/form-edit',
+            uri_segment     : req.path.split('/'),
+            flash_message   : req.flash(),
+            jenis_buku      : await m_jenis_buku.get_one(id_jenis),
+        })
+    },
+
+
+
+    jenis_buku_prosesUpdate:
+    async function (req,res) {
+        let id_jenis = req.params.id
+        let dataform = {
+            kode        : req.body.form_kode,
+            nama        : req.body.form_nama,
+            updated_at  : moment().format('YYYY-MM-DD HH:mm:ss'),
+            updated_by  : req.session.user.id,
+        }
+        try {
+            let update = await m_jenis_buku.update(dataform, id_jenis)
+            if (typeof update[1].rowCount !== undefined && update[1].rowCount > 0) {
+                req.flash('success', `berhasil perbarui jenis buku ${dataform.nama}`)
+                res.redirect('/master/jenis-buku')
+            }
+        } catch (error) {
+            console.log(error)
+            req.flash('danger', JSON.stringify(error))
+            res.redirect(`/master/jenis-buku/edit/${id_jenis}`)
+        }
+    },
+
+
+
     genre:
     function (req,res) {
         res.render('template/layout', {

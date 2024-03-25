@@ -54,6 +54,26 @@ module.exports =
 
 
 
+    update:
+    async function(data, id_jenis) {
+        try {
+            let sql = await db.query(
+                `UPDATE ${table} SET
+                kode = $1,
+                nama = $2,
+                updated_at = $3,
+                updated_by = $4
+                WHERE id = $5`,
+                {bind: [data.kode, data.nama, data.updated_at, data.updated_by, id_jenis]}
+            )
+            return sql
+        } catch (error) {
+            return error
+        }
+    },
+
+
+
     hapus:
     async function(id_jenis) {
         try {
