@@ -8,17 +8,26 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 active" href="/dashboard">
+                    <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'dashboard' ? 'bg-info text-white' : '') %>"
+                        href="/dashboard">
                         <i class="fa fa-fw fa-solid fa-home"></i>Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 active" href="/master">
+                    <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'master' ? 'bg-info text-white' : '') %>"
+                    href="/master">
                         <i class="fa fa-fw fa-solid fa-layer-group"></i>Master data
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="/profil">
+                    <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'buku-masuk' ? 'bg-info text-white' : '') %>"
+                    href="/buku-masuk">
+                        <i class="fa fa-fw fa-solid fa-inbox"></i>Buku Masuk
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'profil' ? 'bg-info text-white' : '') %>"
+                    href="/profil">
                         <i class="fa fa-fw fa-solid fa-user"></i>Profil
                     </a>
                 </li>

@@ -11,6 +11,7 @@ const cek_login     = require('./controller/c_auth').cek_login
 const c_dashboard   = require('./controller/c_dashboard')
 const c_user        = require('./controller/c_user')
 const c_master      = require('./controller/c_master')
+const c_bukuMasuk   = require('./controller/c_buku_masuk')
 
 
 app.use(connectFlash())
@@ -44,9 +45,22 @@ app.get('/profil', cek_login, c_user.profil)
 
 
 app.get('/master', cek_login, c_master.index)
+
 app.get('/master/jenis-buku', cek_login, c_master.jenis_buku)
+app.get('/master/jenis-buku/tambah', cek_login, c_master.jenis_buku_formTambah)
+app.post('/master/jenis-buku/proses-insert', cek_login, c_master.jenis_buku_prosesInsert)
+app.post('/master/jenis-buku/delete/:id', cek_login, c_master.jenis_buku_prosesDelete)
+app.get('/master/jenis-buku/detail/:id', cek_login, c_master.jenis_buku_detail)
+app.get('/master/jenis-buku/edit/:id', cek_login, c_master.jenis_buku_formEdit)
+app.post('/master/jenis-buku/proses-update/:id', cek_login, c_master.jenis_buku_prosesUpdate)
+
+
 app.get('/master/genre', cek_login, c_master.genre)
 app.get('/master/rak', cek_login, c_master.rak)
+
+
+app.get('/buku-masuk', cek_login, c_bukuMasuk.index)
+app.post('/buku-masuk/proses-insert', cek_login, c_bukuMasuk.prosesInsert)
 
 
 app.listen(port, ()=>{
