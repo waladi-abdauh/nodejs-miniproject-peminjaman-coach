@@ -47,7 +47,7 @@ module.exports =
         if (req.session.user) {
             next()
         } else {
-            res.redirect('auth')
+            res.redirect('/auth')
         }
     }
 

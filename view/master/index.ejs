@@ -3,13 +3,19 @@
     <div class="col-12">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="/master/jenis-buku">Jenis buku</a>
+                <a href="/master/jenis-buku" class="nav-link <%= (uri_segment[2] == 'jenis-buku' ? 'active' : '') %>">
+                    Jenis buku
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/master/genre">Genre</a>
+                <a href="/master/genre" class="nav-link <%= (uri_segment[2] == 'genre' ? 'active' : '') %>">
+                    Genre
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/master/rak">Rak</a>
+                <a href="/master/rak" class="nav-link <%= (uri_segment[2] == 'rak' ? 'active' : '') %>">
+                    Rak
+                </a>
             </li>
         </ul>
     </div>
