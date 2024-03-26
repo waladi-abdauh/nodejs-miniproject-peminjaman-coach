@@ -26,6 +26,16 @@ module.exports =
 
     prosesInsert:
     async function(req,res) {
+        // convert ke number
+        let form_jumlah_masuk = Number(req.body.form_jumlah_masuk)
+        // ambil stok terakhir dulu
+        let stokakhir = await m_stok_buku.get_sisaStok_by_namaBuku(req.body.form_nama)
+        let sisa = 0
+        // cek apakah ada buku dengan judul yg diinput
+        if (stokakhir.length > 0) {
+            sisa = Number(stokakhir[0].jumlah_sisa)
+        }
+
         let dataform = {
             nama            : req.body.form_nama,
             penerbit        : req.body.form_penerbit,
@@ -34,12 +44,13 @@ module.exports =
             pengarang       : req.body.form_pengarang,
             ilustrator      : req.body.form_ilustrator,
             kategori        : req.body.form_kategori,
-            jumlah_masuk    : req.body.form_jumlah_masuk,
+            jumlah_masuk    : form_jumlah_masuk,
             jumlah_keluar   : 0,
-            jumlah_sisa     : req.body.form_jumlah_masuk,
+            jumlah_sisa     : form_jumlah_masuk + sisa,
             created_at      : moment().format('YYYY-MM-DD HH:mm:ss'),
             created_by      : req.session.user.id,
         }
+        // console.log(dataform)
         try {
             let insert = await m_stok_buku.insert(dataform)
             if (insert) {

@@ -6,6 +6,23 @@ module.exports =
 {
 
 
+    get_sisaStok_by_namaBuku:
+    async function(nama_buku) {
+        try {
+            let sql = await db.query(
+                `select * from ${table}
+                where nama = $1
+                order by id desc
+                limit 1;`,
+                {bind: [nama_buku]}
+            )
+            return sql[0]
+        } catch (error) {
+            return error
+        }
+    },
+
+
 
     insert:
     async function(data) {
