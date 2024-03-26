@@ -24,6 +24,22 @@ module.exports =
 
 
 
+    get_listBuku:
+    async function() {
+        try {
+            let sql = await db.query(
+                `select distinct on (nama)
+                id, nama, penerbit, jenis, genre, pengarang, ilustrator, kategori
+                from ${table};`
+            )
+            return sql[0]
+        } catch (error) {
+            return error
+        }
+    },
+
+
+
     insert:
     async function(data) {
         try {
