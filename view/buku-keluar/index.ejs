@@ -1,0 +1,43 @@
+<h4 class="text-uppercase">Buku Keluar</h4> <br>
+
+<form action="/buku-keluar/proses-insert" method="post">
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="mb-3">
+                <label class="form-label fw-bold text-capitalize">nama buku</label>
+                <select name="form_nama" class="form-select" required>
+                    <option value="" selected>pilih buku</option>
+                    <% list_buku.forEach(lb => { %>
+                        <option><%= lb.nama %></option>
+                    <% }) %>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="mb-3">
+                <label class="form-label fw-bold text-capitalize">kategori</label>
+                <select name="form_kategori" class="form-select">
+                    <option value="" selected>pilih kategori</option>
+                    <option value="peminjaman">Peminjaman</option>
+                    <option value="sumbangan">Sumbangan ke orang/organisasi</option>
+                    <option value="jual">Penjualan</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="mb-3">
+                <label class="form-label fw-bold text-capitalize">jumlah stok keluar</label>
+                <input type="number" class="form-control" name="form_jumlah_keluar" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </div>
+</form>
