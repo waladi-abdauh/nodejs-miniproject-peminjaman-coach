@@ -13,6 +13,7 @@ const c_user        = require('./controller/c_user')
 const c_master      = require('./controller/c_master')
 const c_bukuMasuk   = require('./controller/c_buku_masuk')
 const c_bukuKeluar  = require('./controller/c_buku_keluar')
+const c_laporan     = require('./controller/c_laporan')
 
 
 app.use(connectFlash())
@@ -66,6 +67,9 @@ app.post('/buku-masuk/proses-insert', cek_login, c_bukuMasuk.prosesInsert)
 
 app.get('/buku-keluar', cek_login, c_bukuKeluar.index)
 app.post('/buku-keluar/proses-insert', cek_login, c_bukuKeluar.prosesInsert)
+
+
+app.get('/laporan', cek_login, c_laporan.index)
 
 
 
