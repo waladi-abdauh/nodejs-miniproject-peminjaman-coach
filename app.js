@@ -70,6 +70,7 @@ app.post('/buku-keluar/proses-insert', cek_login, c_bukuKeluar.prosesInsert)
 
 
 app.get('/laporan', cek_login, c_laporan.index)
+app.get('/laporan/buku-masuk', cek_login, c_laporan.bukuMasuk)
 
 
 

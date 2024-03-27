@@ -1,0 +1,32 @@
+<h4 class="text-capitalize">laporan buku masuk</h4>
+
+<table class="table table-sm table-hover">
+    <thead class="table-light">
+        <tr>
+            <th>Judul</th>
+            <th>Penerbit</th>
+            <th>Jenis</th>
+            <th>Genre</th>
+            <th>Pengarang</th>
+            <th>Ilustrator</th>
+            <th>Jumlah masuk</th>
+            <th>Kategori masuk</th>
+            <th>Tanggal masuk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% stok_masuk.forEach(sm => { %>
+            <tr>
+                <td><%= sm.nama %></td>
+                <td><%= sm.penerbit %></td>
+                <td><%= sm.jenis_nama %></td>
+                <td><%= sm.genre_nama %></td>
+                <td><%= sm.pengarang %></td>
+                <td><%= sm.ilustrator %></td>
+                <td><%= sm.jumlah_masuk %></td>
+                <td><%= sm.kategori %></td>
+                <td><%= moment(sm.created_at).format('DD MMMM YYYY HH:mm') %></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
