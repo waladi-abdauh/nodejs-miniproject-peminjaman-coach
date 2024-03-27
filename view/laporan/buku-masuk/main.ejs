@@ -1,6 +1,6 @@
 <h4 class="text-capitalize">laporan buku masuk</h4>
 
-<table class="table table-sm table-hover">
+<table id="table_laporan" class="table table-sm table-hover">
     <thead class="table-light">
         <tr>
             <th>Judul</th>
@@ -30,3 +30,7 @@
         <% }) %>
     </tbody>
 </table>
+
+<script>
+    new DataTable('#table_laporan')
+</script>
