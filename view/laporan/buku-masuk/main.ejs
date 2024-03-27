@@ -1,3 +1,4 @@
+
 <h4 class="text-capitalize">laporan buku masuk</h4>
 
 <table id="table_laporan" class="table table-sm table-hover">
@@ -31,6 +32,21 @@
     </tbody>
 </table>
 
+<link rel="stylesheet" href="/datatables/css/buttons.dataTables.css">
+<script src="/datatables/js/dataTables.buttons.js"></script>
+<script src="/datatables/js/buttons.dataTables.js"></script>
+<script src="/jszip/jszip.min.js"></script>
+<script src="/pdfmake/pdfmake.min.js"></script>
+<script src="/pdfmake/vfs_fonts.js"></script>
+<script src="/datatables/js/buttons.html5.min.js"></script>
+<script src="/datatables/js/buttons.print.min.js"></script>
+
 <script>
-    new DataTable('#table_laporan')
+    new DataTable('#table_laporan', {
+        layout: {
+            topStart: {
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            }
+        }
+    })
 </script>
