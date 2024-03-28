@@ -1,0 +1,56 @@
+
+<h4 class="text-capitalize mb-5">laporan buku masuk</h4>
+
+<div class="card">
+    <div class="card-body px-5">
+        <table id="table_laporan" class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th>Judul</th>
+                    <th>Penerbit</th>
+                    <th>Jenis</th>
+                    <th>Genre</th>
+                    <th>Pengarang</th>
+                    <th>Ilustrator</th>
+                    <th>Jumlah masuk</th>
+                    <th>Kategori masuk</th>
+                    <th>Tanggal masuk</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% stok_masuk.forEach(sm => { %>
+                    <tr>
+                        <td><small><%= sm.nama %></small></td>
+                        <td><small><%= sm.penerbit %></small></td>
+                        <td><small><%= sm.jenis_nama %></small></td>
+                        <td><small><%= sm.genre_nama %></small></td>
+                        <td><small><%= sm.pengarang %></small></td>
+                        <td><small><%= sm.ilustrator %></small></td>
+                        <td><small><%= sm.jumlah_masuk %></small></td>
+                        <td><small><%= sm.kategori %></small></td>
+                        <td><small><%= moment(sm.created_at).format('DD MMMM YYYY HH:mm') %></small></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/datatables/css/buttons.dataTables.css">
+<script src="/datatables/js/dataTables.buttons.js"></script>
+<script src="/datatables/js/buttons.dataTables.js"></script>
+<script src="/jszip/jszip.min.js"></script>
+<script src="/pdfmake/pdfmake.min.js"></script>
+<script src="/pdfmake/vfs_fonts.js"></script>
+<script src="/datatables/js/buttons.html5.min.js"></script>
+<script src="/datatables/js/buttons.print.min.js"></script>
+
+<script>
+    new DataTable('#table_laporan', {
+        layout: {
+            topStart: {
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            }
+        }
+    })
+</script>

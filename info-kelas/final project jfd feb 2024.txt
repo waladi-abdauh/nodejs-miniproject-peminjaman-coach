@@ -1,0 +1,27 @@
+final project jfd februari-maret 2024
+
+pilih
+1. buat repo/project baru dari 0 dengan tema yg berbeda dari yg sekarang kita kerjakan.
+2. tantangan dari coach (minimal 1 fitur master, 1 fitur laporan):
+	# master: genre, rak, kategori, buku (pilih 1)
+	# laporan: lap. buku keluar, lap. summary (pilih 1)
+	# nilai tambah:
+		# pake library/framework yg tidak sempat saya demonstrasikan di kelas
+		# perbaikan bugs dari fitur ngoding bareng
+		# fitur yg belum ada
+
+komposisi penilaian:
+1. final project 50%
+2. ujian teori 40%
+3. lms 10%
+sertifikat kompetensi: minimal 6.5 dari komposisi penilaian
+
+peserta harus memberikan laporan final project berupa:
+1. source code / link github
+2. screenshot aplikasi yg dibuat dalam bentuk pdf
+3. source code/link github & pdf kirim ke grup wa.
+
+link ujian komprehensif akan diberikan oleh coach setelah final project selesai semua.
+
+	
+
