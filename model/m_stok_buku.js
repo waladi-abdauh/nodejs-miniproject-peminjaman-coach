@@ -40,6 +40,27 @@ module.exports =
 
 
 
+    get_stokMasuk:
+    async function() {
+        try {
+            let sql = await db.query(
+                `select
+                    b.*,
+                    j.nama as jenis_nama,
+                    g.nama as genre_nama
+                from ${table} as b
+                left join m_jenis_buku as j     on j.kode = b.jenis
+                left join m_genre as g          on g.kode = b.genre
+                where jumlah_masuk > 0;`
+            )
+            return sql[0]
+        } catch (error) {
+            return error
+        }
+    },
+
+
+
     insert:
     async function(data) {
         try {
