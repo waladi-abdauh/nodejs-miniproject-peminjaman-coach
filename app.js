@@ -1,6 +1,6 @@
 const express       = require('express')
 const app           = express()
-const port          = 3002
+const port          = 3003
 const session       = require('express-session')
 const connectFlash  = require('connect-flash')
 const cookieParser  = require('cookie-parser')
