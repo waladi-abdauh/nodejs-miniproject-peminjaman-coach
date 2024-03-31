@@ -49,6 +49,12 @@ module.exports =
         } else {
             res.redirect('/auth')
         }
+    },
+
+    logout:
+    function (req,res) {
+        req.session.destroy()
+        res.redirect('/auth')
     }
 
 

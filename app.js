@@ -44,6 +44,8 @@ app.get('/auth', c_auth.form_login)
 app.post('/auth/proses-login', c_auth.proses_login)
 app.get('/dashboard', cek_login, c_dashboard.index)
 app.get('/profil', cek_login, c_user.profil)
+app.post('/profil/proses-update', cek_login, c_user.profil_prosesUpdate)
+app.get('/logout', c_auth.logout)
 
 
 app.get('/master', cek_login, c_master.index)
