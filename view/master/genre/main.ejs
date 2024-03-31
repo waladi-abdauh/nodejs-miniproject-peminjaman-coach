@@ -1,1 +1,53 @@
-<h4>genre</h4>
+<h4 class="text-capitalize">master genre</h4>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-lg-6 text-end">
+                <a href="/master/genre/tambah" class="btn btn-sm btn-primary">
+                    <i class="fa fa-fw fa-plus-circle"></i> Genre baru
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>kode</th>
+                            <th>nama genre</th>
+                            <th>option</th>
+                            <th>hapus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for( let i=0; i < genre.length; i++) { %>
+                            <tr>
+                                <td><%= genre[i].kode %></td>
+                                <td><%= genre[i].nama %></td>
+                                <td>
+                                    <a href="/master/genre/detail/<%= genre[i].id %>" class="btn btn-sm btn-outline-info">
+                                        <i class="fa fa-fw fa-solid fa-eye"></i>
+                                    </a>
+                                    <a href="/master/genre/edit/<%= genre[i].id %>" class="btn btn-sm btn-outline-warning">
+                                        <i class="fa fa-fw fa-solid fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form action="/master/genre/delete/<%= genre[i].id %>" method="post">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"
+                                        onclick="return confirm('apakah anda yakin ingin hapus <%= genre[i].nama %>?')">
+                                            <i class="fa fa-fw fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

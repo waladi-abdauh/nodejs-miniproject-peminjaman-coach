@@ -1,6 +1,6 @@
 const express       = require('express')
 const app           = express()
-const port          = 3003
+const port          = 3002
 const session       = require('express-session')
 const connectFlash  = require('connect-flash')
 const cookieParser  = require('cookie-parser')
@@ -58,6 +58,14 @@ app.post('/master/jenis-buku/proses-update/:id', cek_login, c_master.jenis_buku_
 
 
 app.get('/master/genre', cek_login, c_master.genre)
+app.get('/master/genre/tambah', cek_login, c_master.genre_formTambah)
+app.post('/master/genre/proses-insert', cek_login, c_master.genre_prosesInsert)
+app.post('/master/genre/delete/:id', cek_login, c_master.genre_prosesDelete)
+app.get('/master/genre/detail/:id', cek_login, c_master.genre_detail)
+app.get('/master/genre/edit/:id', cek_login, c_master.genre_formEdit)
+app.post('/master/genre/proses-update/:id', cek_login, c_master.genre_prosesUpdate)
+
+
 app.get('/master/rak', cek_login, c_master.rak)
 
 

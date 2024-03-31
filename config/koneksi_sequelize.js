@@ -6,6 +6,7 @@ const { Sequelize } = require('sequelize')
 module.exports = {
     db: new Sequelize('db_peminjaman', 'postgres', 'root', {
         host: 'localhost',
+        port: '5433',
         dialect: 'postgres',
         define: {
             freezeTableName: true, // untuk kesamaan antara nama model & table
