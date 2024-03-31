@@ -12,17 +12,19 @@
                     Buku Keluar
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="/laporan/rekapitulasi" class="nav-link <%= (uri_segment[2] == 'rekapitulasi' ? 'active' : '') %>">
                     Rekapitulasi
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
     <div class="col-12">
         <div class="tab-content pt-3 ps-3">
             <% if (typeof subkonten !== 'undefined') { %>
                 <%- include(subkonten) %>
+            <% } else { %>
+                <p>Pilih salah satu. Buku Masuk / Buku Keluar.</p>
             <% } %>
         </div>
     </div>

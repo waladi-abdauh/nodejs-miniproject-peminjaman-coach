@@ -12,17 +12,19 @@
                     Genre
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="/master/rak" class="nav-link <%= (uri_segment[2] == 'rak' ? 'active' : '') %>">
                     Rak
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
     <div class="col-12">
         <div class="tab-content pt-3 ps-3">
             <% if (typeof subkonten !== 'undefined') { %>
                 <%- include(subkonten) %>
+            <% } else { %>
+                <p>Pilih salah satu. Jenis Buku / Genre.</p>
             <% } %>
         </div>
     </div>
